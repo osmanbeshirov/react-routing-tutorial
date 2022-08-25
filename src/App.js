@@ -1,6 +1,6 @@
 import './App.css';
 
-import { Route, Routes, NavLink, Link } from 'react-router-dom';
+import { Route, Routes, NavLink } from 'react-router-dom';
 
 import Home from './Pages/Home';
 import BlogLayout from './Pages/blog';
@@ -9,6 +9,7 @@ import Categories from './Pages/blog/Categories';
 import PostUrl from './Pages/blog/PostUrl';
 import Blog from './Pages/blog/Blog';
 import Page404 from './Pages/Page404';
+import Blog404 from './Pages/blog/Blog404';
 
 function App() {
   return (
@@ -17,7 +18,6 @@ function App() {
         <NavLink to={'/'}>Home page</NavLink>
         <NavLink to={'/contacts'}>Contacts page</NavLink>
         <NavLink to={'/blog'}>Blog page</NavLink>
-
       </nav>
       <Routes>
         <Route path='/' element={<Home />} />
@@ -27,6 +27,8 @@ function App() {
           <Route index={true} element={<Blog />} />
           <Route path='categories' element={<Categories />} />
           <Route path='post/:url' element={<PostUrl />} />
+
+          <Route path='*' element={<Blog404 />} />
         </Route>
 
         <Route path='*' element={<Page404 />} />
